@@ -159,14 +159,25 @@
 \section*{Kurzfassung}
 \else
 \section*{Abstract}
-%Your abstract should have the following strcuture. This means your asbtract should contain context, problem,... conclusion explicitly as given here. You just need to add your statement in front.
-\fi
-\textit{Context.} Write one or two statements here on which software engineering area your thesis is about...\\
-\textit{Problem.} Write one or two statements here on your problem statements that you are tackling...\\
-\textit{Objective.} Write one or two statements here on your objective(s)...\\
-\textit{Method.} Write one or two statements here on what is your method to achieve the objective...\\
-\textit{Result.} Write one or two statements here on results...\\
-\textit{Conclusion.} Write one or two statements here on conclusion...
+
+This research is situated in the field of software engineering, specifically in authentication and authorization for web-based applications.
+The focus is on integrating OAuth authentication into Gropius, an issue management tool aimed at unifying workflows across multiple platforms like GitHub and Jira.\\
+ The current Gropius login service is stateless, requiring users to frequently re-authenticate and preventing seamless synchronization with external services.
+This results in a limited user experience and hinders integration capabilities.\\
+The objective of this research is to design and implement an OAuth-based authentication system for
+Gropius that allows it to act both as an OAuth consumer (for external logins and data synchronization) and an OAuth provider
+(enabling Gropius accounts to be used in other applications), while ensuring session-based access.\\
+The research approach involves developing a new authentication service,
+incorporating session management and token-based synchronization for cross-service data handling.
+An appropriate database solution will be selected for secure token storage and session management, with consideration
+given to scalability, performance, and compatibility with the overall system architecture.\\
+ The implementation will enable session persistence, third-party authentication (e.g., GitHub and Google),
+and token-based API synchronization for continuous data updates across platforms.
+It will enhance Gropius’s interoperability and improve user experience by maintaining login states across sessions and devices.\\
+Integrating OAuth into Gropius will significantly improve its authentication infrastructure,
+providing a more scalable, secure, and user-friendly system. This implementation will allow Gropius to better support cross-platform workflows,
+positioning it as a robust solution for unified issue management.
+
 %\cleardoublepage
 
 
@@ -262,9 +273,9 @@
 \printbibliography
 
 \ifdeutsch
-Alle URLs wurden zuletzt am 17.\,03.\,2008 geprüft.
+Alle URLs wurden zuletzt am 17.\,11.\,2024 geprüft.
 \else
-All links were last checked on March 17, 2008.
+All links were last checked on November 17, 2024.
 \fi
 
 %\pagestyle{empty}

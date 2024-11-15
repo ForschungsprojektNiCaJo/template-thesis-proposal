@@ -3,9 +3,22 @@
 \chapter{Foundations and Related Work}
 \label{chap:foundation}
 
-You need to differentiate between Foundation and related work. Foundation is a method/concept/discipline.. that you are re-using and to understand your thesis proposal, readers need to know about them. However, related work shows why this problem has not been sufficiently solved before.
+
+
+%You need to differentiate between Foundation and related work. Foundation is a method/concept/discipline.. that you are re-using and to understand your thesis proposal, readers need to know about them. However, related work shows why this problem has not been sufficiently solved before.
 
 \section{Foundations}
+
+OAuth is a widely used open authorization standard that enables applications to delegate authentication tasks to a third-party service.
+As an OAuth consumer, Gropius can request limited access rights to external accounts (e.g., GitHub),
+allowing the synchronization of issues without requiring direct password storage or management.
+As an OAuth provider, Gropius would enable users to log in to other applications using their Gropius credentials,
+thereby fostering greater flexibility and integration.
+
 Here, introduce necessary foundations that is required for understanding your thesis. For example, your research area is on Model-driven software development, and it is necessary for readers to know the concept of model-2-model transformation.
 \section{Related work}
-In addition to discussing about foundations, you need to discuss about why the problem you are tackling has been insufficiently solved before. To do so, you need to mention related work and discuss what is the difference between your work and those related works.
+The current Gropius authentication setup is a stateless single-page application (SPA) relying on a basic login service.
+Users cannot maintain session persistence across interactions, and synchronization with services like GitHub requires repeated authentication.
+By shifting to an OAuth-based approach with session management, Gropius can support more efficient login flows and long-lived tokens.
+
+%In addition to discussing about foundations, you need to discuss about why the problem you are tackling has been insufficiently solved before. To do so, you need to mention related work and discuss what is the difference between your work and those related works.
