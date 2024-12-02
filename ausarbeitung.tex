@@ -153,6 +153,8 @@
 \pagestyle{preamble}
 \renewcommand*{\chapterpagestyle}{preamble}
 
+% !TEX root = C:\Users\johzi\OneDrive\Desktop\Master\Forschungsprojekt\template-thesis-proposal\ausarbeitung.tex
+
 %Kurzfassung / abstract
 %auch im Stil vom Inhaltsverzeichnis
 \ifdeutsch
@@ -160,13 +162,15 @@
 \else
 \section*{Abstract}
 
-This research is situated in the field of software engineering, specifically in authentication and authorization for web-based applications.
+This research is situated in the field of software engineering, specifically in authentication and authorization for Users in web-based applications.
 The focus is on integrating OAuth authentication into Gropius, an issue management tool aimed at unifying workflows across multiple platforms like GitHub and Jira.\\
  The current Gropius login service is stateless, requiring users to frequently re-authenticate and preventing seamless synchronization with external services.
 This results in a limited user experience and hinders integration capabilities.\\
 The objective of this research is to design and implement an OAuth-based authentication system for
 Gropius that allows it to act both as an OAuth consumer (for external logins and data synchronization) and an OAuth provider
-(enabling Gropius accounts to be used in other applications), while ensuring session-based access.\\
+(enabling Gropius accounts to be used in other applications \\
+*Ich glaube das stimmt nicht. OAuth Anbieter, heißt lediglich, dass man sich auf Gropius mit z.B Microsoft anmelden kann: https://learn.microsoft.com/de-de/power-pages/security/authentication/oauth2-provider *),\\ 
+while ensuring session-based access.\\
 The research approach involves developing a new authentication service,
 incorporating session management and token-based synchronization for cross-service data handling.
 An appropriate database solution will be selected for secure token storage and session management, with consideration
