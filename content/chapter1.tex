@@ -2,15 +2,38 @@
 
 \chapter{Introduction}
 
-%one paragraph per item of the abstract. However, provide more details and do not just copy sentences from the abstract.
-Additionally, provide  another paragraph and  Make your own \textbf{contribution(s)} explicit ("The contribution of this thesis is...").
+
+Authentication and authorization are critical components of modern software engineering, particularly in web-based applications that handle sensitive user data and integrate with external services.
+OAuth \cite{SINGH2022103091}, an open standard for access delegation, has become a widely adopted solution for enabling secure authentication and seamless integration between platforms.
+It allows applications to act as either consumers of third-party services (for features like social logins and data synchronization) or providers of authentication services for other systems.
+This research focuses on integrating OAuth into Gropius \cite{gropius}, an issue management tool designed to unify workflows across platforms such as GitHub and Jira \cite{Atlassian, GitHub}.
+
+The current Gropius login mechanism employs a stateless authentication service. As the current implementation does not use stateful sessions, the users have to frequently re-authenticate. \cite{GropiusGitHub}
+This limitation impacts the user experience and creates barriers to integrating with external platforms, as there is no mechanism for persistent sessions.
+Addressing these challenges is essential to enhance Gropius’s interoperability and provide a seamless experience for users who rely on multiple tools in their workflows.
+
+To address these issues, this research aims to design and implement a new OAuth 2.1-based authentication system for Gropius.
+This system will allow Gropius to function both as an OAuth consumer—enabling third-party logins and synchronization with external platforms like GitHub—and as an OAuth provider,
+allowing other applications to authenticate users using their Gropius accounts.
+The solution will incorporate session-based \cite{895139, 716693} access to overcome the limitations of the existing stateless service, ensuring that users remain logged in across sessions and devices.
+
+The research methodology involves developing a robust authentication service that combines session management with token-based synchronization for cross-service data handling.
+The implementation will consider scalability, security, and system compatibility, including the selection of a suitable database for managing session states and tokens.
+This approach will enable stateful user sessions, third-party authentication (e.g., via GitHub and Jira),
+and API-level data synchronization for real-time updates across integrated platforms.
+
+The contribution of this research is the development of a comprehensive OAuth-based authentication system that enhances Gropius’s ability to integrate with external platforms and improves the overall user experience.
+By enabling session persistence, supporting third-party logins, and facilitating cross-platform data synchronization,
+this project positions Gropius as a more scalable, secure, and user-friendly tool for unified issue management.
+This advancement will strengthen Gropius’s role as a central hub for managing workflows in diverse, interconnected environments.
 
 
-\section*{Thesis Structure}
-Here, give an overview of your thesis proposal structure.
+
+
+\section*{Proposal Structure}
 \begin{description}
-	\item[Chapter~\ref{chap:foundation} -- \nameref{chap:foundation}:] Here, we provide...
-	\item[Chapter~\ref{chap:wp} -- \nameref{chap:wp}] We conclude our thesis ...
+	\item[Chapter~\ref{chap:foundation} -- \nameref{chap:foundation}:] Here, we provide the neccesary information about OAuth and the Gropius tool.
+	\item[Chapter~\ref{chap:wp} -- \nameref{chap:wp}] Here, we present the objectives and work packages of our research project.
 \end{description}
 
 %\section*{Thesis Structure}

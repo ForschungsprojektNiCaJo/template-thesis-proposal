@@ -9,53 +9,53 @@
 
 %Englisch:
 \let\ifdeutsch\iffalse
-\let\ifenglisch\iftrue
+                  \let\ifenglisch\iftrue
 
 %Deutsch:
 %\let\ifdeutsch\iftrue
 %\let\ifenglisch\iffalse
 
 %
-\ifdeutsch
-	\PassOptionsToClass{numbers=noenddot}{scrbook}
-\fi
+                                     \ifdeutsch
+                                     \PassOptionsToClass{numbers=noenddot}{scrbook}
+                  \fi
 
 %Warns about outdated packages and missing caption delcarations
 %See https://www.ctan.org/pkg/nag
-\RequirePackage[l2tabu, orthodox]{nag}
+                  \RequirePackage[l2tabu, orthodox]{nag}
 
 %Neue deutsche Trennmuster
 %Siehe http://www.ctan.org/pkg/dehyph-exptl und http://projekte.dante.de/Trennmuster/WebHome
 %Nur für pdflatex, nicht für lualatex
-\RequirePackage{ifluatex}
-\ifluatex
+                  \RequirePackage{ifluatex}
+                  \ifluatex
 %do not load anything
 \else
-	\ifdeutsch
-		\RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}
-	\fi
+                  \ifdeutsch
+                  \RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}
+\fi
 \fi
 
 \documentclass[
-               fontsize=12pt, %Default: 11pt, bei Linux Libertine zu klein zum Lesen
+    fontsize=12pt, %Default: 11pt, bei Linux Libertine zu klein zum Lesen
 % BEGINN: Optionen für typearea
-               paper=a4,
-               twoside, % fuer die Betrachtung am Schirm ungeschickt
-               BCOR=3mm, % Hack für BCOR (1.92 o.ä.), da bei BCOR2mm die Fuellpunkte beim Inhaltsverzeichnis falsch sind. Hack aber nicht mehr nötig: microtype für Verzeichnisse ausschalten hilft.
-               DIV=13,   % je höher der DIV-Wert, desto mehr geht auf eine Seite. Gute werde sind zwischen DIV=12 und DIV=15
-               headinclude=true,
-               footinclude=false,
+    paper=a4,
+    twoside, % fuer die Betrachtung am Schirm ungeschickt
+    BCOR=3mm, % Hack für BCOR (1.92 o.ä.), da bei BCOR2mm die Fuellpunkte beim Inhaltsverzeichnis falsch sind. Hack aber nicht mehr nötig: microtype für Verzeichnisse ausschalten hilft.
+    DIV=13,   % je höher der DIV-Wert, desto mehr geht auf eine Seite. Gute werde sind zwischen DIV=12 und DIV=15
+    headinclude=true,
+    footinclude=false,
 % ENDE: Optionen für typearea
 %               titlepage,
-               bibliography=totoc,
+    bibliography=totoc,
 %               idxtotoc,   %Index ins Inhaltsverzeichnis
 %                liststotoc, %List of X ins Inhaltsverzeichnis, mit liststotocnumbered werden die Abbildungsverzeichnisse nummeriert
-               headsepline,
-               cleardoublepage=empty,
-               parskip=half,
+    headsepline,
+    cleardoublepage=empty,
+    parskip=half,
 %               draft    % um zu sehen, wo noch nachgebessert werden muss - wichtig, da Bindungskorrektur mit drin
-               final   % ACHTUNG! - in pagestyle.tex noch Seitenstil anpassen
-               ]{scrbook}
+    final   % ACHTUNG! - in pagestyle.tex noch Seitenstil anpassen
+]{scrbook}
 
 
 \input{preambel/packages_and_options}
@@ -79,10 +79,10 @@
 %Angaben in die PDF-Infos uebernehmen
 \makeatletter
 \hypersetup{
-            pdftitle={}, %Titel der Arbeit
-            pdfauthor={}, %Author
-            pdfkeywords={}, % CR-Klassifikation und ggf. weitere Stichworte
-            pdfsubject={}
+    pdftitle={}, %Titel der Arbeit
+    pdfauthor={}, %Author
+    pdfkeywords={}, % CR-Klassifikation und ggf. weitere Stichworte
+    pdfsubject={}
 }
 \makeatother
 
@@ -97,40 +97,40 @@
 
 \newenvironment{compact_itemize}{
 
- \begin{itemize}
-  \setlength{\itemsep}{1pt}
-  \setlength{\parskip}{0pt}
-  \setlength{\parsep}{0pt}
-}{
-  \end{itemize}
- }
+    \begin{itemize}
+        \setlength{\itemsep}{1pt}
+        \setlength{\parskip}{0pt}
+        \setlength{\parsep}{0pt}
+        }{
+    \end{itemize}
+}
 
 \newenvironment{keypoints}{%
-\medskip\noindent
-\begin{boxedminipage}{\linewidth}\vspace{6pt}
-\begin{compact_itemize}}{%
-\end{compact_itemize}\vspace{-6pt}
-\end{boxedminipage}}
+    \medskip\noindent
+    \begin{boxedminipage}{\linewidth}\vspace{6pt}
+    \begin{compact_itemize}}{%
+    \end{compact_itemize}\vspace{-6pt}
+    \end{boxedminipage}}
 
 
 \begin{document}
-	
+
 %tex4ht-Konvertierung verschönern
-\iftex4ht
+    \iftex4ht
 % tell tex4ht to create picures also for formulas starting with '$'
 % WARNING: a tex4ht run now takes forever!
-\Configure{$}{\PicMath}{\EndPicMath}{} 
+    \Configure{$}{\PicMath}{\EndPicMath}{}
 %$ % <- syntax highlighting fix for emacs
-\Css{body {text-align:justify;}}
+    \Css{body {text-align:justify;}}
 
 %conversion of .pdf to .png
-\Configure{graphics*}  
-         {pdf}  
-         {\Needs{"convert \csname Gin@base\endcsname.pdf  
-                               \csname Gin@base\endcsname.png"}%  
-          \Picture[pict]{\csname Gin@base\endcsname.png}%  
-         }  
-\fi
+    \Configure{graphics*}
+    {pdf}
+    {\Needs{"convert \csname Gin@base\endcsname.pdf
+    \csname Gin@base\endcsname.png"}%
+    \Picture[pict]{\csname Gin@base\endcsname.png}%
+    }
+    \fi
 
 %Tipp von http://goemonx.blogspot.de/2012/01/pdflatex-ligaturen-und-copynpaste.html
 %siehe auch http://tex.stackexchange.com/questions/4397/make-ligatures-in-linux-libertine-copyable-and-searchable
@@ -138,44 +138,43 @@
 %ONLY WORKS ON MiKTeX
 %On other systems, download glyphtounicode.tex from http://pdftex.sarovar.org/misc/
 %
-\input glyphtounicode.tex
-\pdfgentounicode=1
+    \input glyphtounicode.tex
+    \pdfgentounicode=1
 
-\VerbatimFootnotes %verbatim text in Fußnoten erlauben. Geht normalerweise nicht.
+    \VerbatimFootnotes %verbatim text in Fußnoten erlauben. Geht normalerweise nicht.
 
-\input{macros/commands}
-\pagenumbering{roman}
-\Titelblatt
+    \input{macros/commands}
+    \pagenumbering{roman}
+    \Titelblatt
 
 %Eigener Seitenstil fuer die Kurzfassung und das Inhaltsverzeichnis
-\deftripstyle{preamble}{}{}{}{}{}{\pagemark}
+    \deftripstyle{preamble}{}{}{}{}{}{\pagemark}
 %Doku zu deftripstyle: scrguide.pdf
-\pagestyle{preamble}
-\renewcommand*{\chapterpagestyle}{preamble}
+    \pagestyle{preamble}
+    \renewcommand*{\chapterpagestyle}{preamble}
 
-% !TEX root = C:\Users\johzi\OneDrive\Desktop\Master\Forschungsprojekt\template-thesis-proposal\ausarbeitung.tex
+    % !TEX root = C:\Users\johzi\OneDrive\Desktop\Master\Forschungsprojekt\template-thesis-proposal\ausarbeitung.tex
 
 %Kurzfassung / abstract
 %auch im Stil vom Inhaltsverzeichnis
-\ifdeutsch
-\section*{Kurzfassung}
+    \ifdeutsch
+    \section*{Kurzfassung}
 \else
 \section*{Abstract}
 
-This research is situated in the field of software engineering, specifically in authentication and authorization for Users in web-based applications.
+This research is situated in the field of software engineering, specifically in authentication and authorization for users in web-based applications.
 The focus is on integrating OAuth authentication into Gropius, an issue management tool aimed at unifying workflows across multiple platforms like GitHub and Jira.\\
- The current Gropius login service is stateless, requiring users to frequently re-authenticate and preventing seamless synchronization with external services.
+The current Gropius login service is stateless, but does not provide stateful sessions, requiring users to frequently re-authenticate and preventing seamless synchronization with external services.
 This results in a limited user experience and hinders integration capabilities.\\
 The objective of this research is to design and implement an OAuth-based authentication system for
 Gropius that allows it to act both as an OAuth consumer (for external logins and data synchronization) and an OAuth provider
-(enabling Gropius accounts to be used in other applications \\
-*Ich glaube das stimmt nicht. OAuth Anbieter, heißt lediglich, dass man sich auf Gropius mit z.B Microsoft anmelden kann: https://learn.microsoft.com/de-de/power-pages/security/authentication/oauth2-provider *),\\ 
-while ensuring session-based access.\\
+(enabling Gropius accounts to be used in other applications while ensuring session-based access.\\
+%Ich glaube das stimmt nicht. OAuth Anbieter, heißt lediglich, dass man sich auf Gropius mit z.B Microsoft anmelden kann: https://learn.microsoft.com/de-de/power-pages/security/authentication/oauth2-provider *),\\
 The research approach involves developing a new authentication service,
 incorporating session management and token-based synchronization for cross-service data handling.
 An appropriate database solution will be selected for secure token storage and session management, with consideration
 given to scalability, performance, and compatibility with the overall system architecture.\\
- The implementation will enable session persistence, third-party authentication (e.g., GitHub and Google),
+The implementation will enable session persistence, third-party authentication (e.g., GitHub and Jira),
 and token-based API synchronization for continuous data updates across platforms.
 It will enhance Gropius’s interoperability and improve user experience by maintaining login states across sessions and devices.\\
 Integrating OAuth into Gropius will significantly improve its authentication infrastructure,
@@ -226,7 +225,7 @@ positioning it as a robust solution for unified issue management.
 %\fi
 
 %Wird nur bei Verwendung von der lstlisting-Umgebung mit dem "caption"-Parameter benoetigt
-%\lstlistoflistings 
+%\lstlistoflistings
 %ansonsten:
 %\ifdeutsch
 %\listof{Listing}{Verzeichnis der Listings}
@@ -277,9 +276,9 @@ positioning it as a robust solution for unified issue management.
 \printbibliography
 
 \ifdeutsch
-Alle URLs wurden zuletzt am 17.\,11.\,2024 geprüft.
+Alle URLs wurden zuletzt am 9.\,12.\,2024 geprüft.
 \else
-All links were last checked on November 17, 2024.
+All links were last checked on December 9, 2024.
 \fi
 
 %\pagestyle{empty}

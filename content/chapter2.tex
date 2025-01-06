@@ -8,21 +8,30 @@
 %You need to differentiate between Foundation and related work. Foundation is a method/concept/discipline.. that you are re-using and to understand your thesis proposal, readers need to know about them. However, related work shows why this problem has not been sufficiently solved before.
 
 \section{Foundations}
+\subsection*{OAuth}
+OAuth \cite{jones2012oauth} is an open standard for access delegation, commonly used to grant websites or applications limited access to user information without exposing passwords. It allows users to authorize third-party applications to access their data on another service without sharing their credentials. After the resource owner grants permission, the client receives an access token from the authorization server. This token is then used to access the protected resources on the resource server. If the access token expires, the client can use a refresh token (if provided) to obtain a new access token without requiring the resource owner to log in again.
 
-OAuth is a widely used open authorization standard that enables applications to delegate authentication tasks to a third-party service.
 As an OAuth consumer, Gropius can request limited access rights to external accounts (e.g., GitHub),
 allowing the synchronization of issues without requiring direct password storage or management.
 As an OAuth provider, Gropius would enable users to log in to other applications using their Gropius credentials,
-thereby fostering greater flexibility and integration. \\ *again i am not sure if this is entirly correct*\\
-
-we could write something more general about OAuth
+thereby fostering greater flexibility and integration. \\
+%again i am not sure if this is entirly correct*\\
 
 %Here, introduce necessary foundations that is required for understanding your thesis. For example, your research area is on Model-driven software development, and it is necessary for readers to know the concept of model-2-model transformation.
-\section{Related work}
-The current Gropius authentication setup is a stateless single-page application (SPA) relying on a basic login service.
-Users cannot maintain session persistence across interactions, and synchronization with services like GitHub requires repeated authentication.
-By shifting to an OAuth-based approach with session management, Gropius can support more efficient login flows and long-lived tokens.
+\subsection*{Gropius}
+Gropius is a state-of-the-art tool designed to address the challenges of managing issues in distributed, component-based systems. Conventional issue management systems are often constrained to a project-specific scope, which limits their effectiveness in handling cross-component dependencies. Gropius overcomes this limitation through its integrated issue management capabilities, allowing users to create and manage issues that span multiple components. This approach ensures that interdependencies between components are captured and addressed systematically, enhancing coordination and collaboration.
 
-Maby a Paragraph on Session Management could work here
+One of Gropius’s key features is its cross-component visibility, which documents architectural dependencies and links issues across components. This capability provides a comprehensive view of how issues propagate throughout the system, enabling better communication and understanding among development teams. Additionally, Gropius offers a user-friendly interface with a modern web-based front-end, including modules for user management, project management, and a graphical cross-component issue modeller, ensuring ease of use for both technical and nontechnical users.
+
+Furthermore, Gropius excels in seamless integration with existing systems by acting as a wrapper over multiple issue management platforms. This design enables users to interact with Gropius rather than dealing with the complexity of each integrated system, thereby simplifying workflows. Its real-time synchronization ensures that any changes made in a component’s issue management system are instantly propagated through Gropius, keeping all stakeholders updated and aligned.
+
+While Gropius excels in cross-component issue management, its current authentication mechanism is limited by a stateless design. Users must frequently re-authenticate, and the system lacks robust integration with external services for seamless workflows. Building on the foundational achievements of Gropius, this research focuses on enhancing its authentication infrastructure by integrating an OAuth-based system. This implementation will provide session persistence, third-party authentication (e.g., GitHub and Jira), and token-based data synchronization, addressing the identified limitations and enabling Gropius to leverage its cross-platform potential fully.
+\section{Related Work}
+Session management is a critical aspect of modern web applications. It ensures that user interactions are maintained across multiple requests without requiring repeated logins.
+Existing solutions often rely on cookies or token-based mechanisms to manage sessions.
+However, these approaches can have limitations in terms of security and scalability.
+By integrating OAuth with robust session management, Gropius can enhance user experience by maintaining login states across sessions, reducing the need for frequent re-authentication,
+and improving overall security through better token handling and storage mechanisms.
+
 
 %In addition to discussing about foundations, you need to discuss about why the problem you are tackling has been insufficiently solved before. To do so, you need to mention related work and discuss what is the difference between your work and those related works.

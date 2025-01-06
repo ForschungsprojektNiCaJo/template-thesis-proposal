@@ -38,7 +38,7 @@
 %Parallelbetrieb tex4ht und pdflatex
 \makeatletter
 \@ifpackageloaded{tex4ht}{\def\iftex4ht{\iftrue}}
-                         {\def\iftex4ht{\iffalse}}
+{\def\iftex4ht{\iffalse}}
 \makeatother
 %%%
 
@@ -55,7 +55,7 @@
 \usepackage[ngerman]{babel}
 %Ein "abstract" ist eine "Kurzfassung", keine "Zusammenfassung"
 \addto\captionsngerman{%
-	\renewcommand\abstractname{Kurzfassung}%
+\renewcommand\abstractname{Kurzfassung}%
 }
 \else
 %
@@ -142,7 +142,7 @@
 % We just include the SVG as is
 \usepackage{epstopdf}
 \epstopdfDeclareGraphicsRule{.svg}{pdf}{.pdf}{%
-  inkscape -z -D --file=#1 --export-pdf=\OutputFile
+inkscape -z -D --file=#1 --export-pdf=\OutputFile
 }
 %
 %%%
@@ -194,9 +194,9 @@ inkscape -z -D --file=\getgraphicspath#1.svg %
 \usepackage{longtable}
 \usepackage{dcolumn} %Aligning numbers by decimal points in table columns
 \ifdeutsch
-	\newcolumntype{d}[1]{D{.}{,}{#1}}
+\newcolumntype{d}[1]{D{.}{,}{#1}}
 \else
-	\newcolumntype{d}[1]{D{.}{.}{#1}}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
 \fi
 
 %
@@ -420,24 +420,24 @@ inkscape -z -D --file=\getgraphicspath#1.svg %
 %%%
 %biblatex statt bibtex
 \usepackage[
-  backend       = biber, 	%biber dose not work with 64x versions alternative: bibtex8
-														%minalphanames only works with biber backend														
-  sortcites     = true,
-  bibstyle      = alphabetic,
-  citestyle     = alphabetic,
-  firstinits    = true,
-  useprefix     = false, %"von, van, etc." will be printed, too. See below.
-  minnames      = 1,
-  minalphanames = 3,
-  maxalphanames = 4,
-  maxbibnames   = 99,
-  maxcitenames  = 3,
-	natbib        = true,
-	eprint        = true,
-	url           = true,
-  doi           = true,
-  isbn          = true,
-  backref       = true]{biblatex}
+backend       = biber, 	%biber dose not work with 64x versions alternative: bibtex8
+%minalphanames only works with biber backend
+sortcites     = true,
+bibstyle      = alphabetic,
+citestyle     = alphabetic,
+firstinits    = true,
+useprefix     = false, %"von, van, etc." will be printed, too. See below.
+minnames      = 1,
+minalphanames = 3,
+maxalphanames = 4,
+maxbibnames   = 99,
+maxcitenames  = 3,
+natbib        = true,
+eprint        = true,
+url           = true,
+doi           = true,
+isbn          = true,
+backref       = true]{biblatex}
 \bibliography{bibliography}
 %\addbibresource[datatype=bibtex]{bibliography.bib}
 
@@ -459,29 +459,29 @@ inkscape -z -D --file=\getgraphicspath#1.svg %
 %Replace last "and" by comma in bibliography
 %See http://tex.stackexchange.com/a/41532/9075
 \AtBeginBibliography{%
-  \renewcommand*{\finalnamedelim}{\addcomma\space}%
+\renewcommand*{\finalnamedelim}{\addcomma\space}%
 }
 
 \DefineBibliographyStrings{ngerman}{
-  backrefpage  = {zitiert auf S\adddot},
-  backrefpages = {zitiert auf S\adddot},
-  andothers    = {et\ \addabbrvspace al\adddot},
-  %Tipp von http://www.mrunix.de/forums/showthread.php?64665-biblatex-Kann-%DCberschrift-vom-Inhaltsverzeichnis-nicht-%E4ndern&p=293656&viewfull=1#post293656
-  bibliography = {Literaturverzeichnis}
+backrefpage  = {zitiert auf S\adddot},
+backrefpages = {zitiert auf S\adddot},
+andothers    = {et\ \addabbrvspace al\adddot},
+%Tipp von http://www.mrunix.de/forums/showthread.php?64665-biblatex-Kann-%DCberschrift-vom-Inhaltsverzeichnis-nicht-%E4ndern&p=293656&viewfull=1#post293656
+bibliography = {Literaturverzeichnis}
 }
 
 %enable hyperlinked author names when using \citeauthor
 %source: http://tex.stackexchange.com/a/75916/9075
 \DeclareCiteCommand{\citeauthor}
-  {\boolfalse{citetracker}%
-   \boolfalse{pagetracker}%
-   \usebibmacro{prenote}}
-  {\ifciteindex
-     {\indexnames{labelname}}
-     {}%
-   \printtext[bibhyperref]{\printnames{labelname}}}
-  {\multicitedelim}
-  {\usebibmacro{postnote}}
+{\boolfalse{citetracker}%
+\boolfalse{pagetracker}%
+\usebibmacro{prenote}}
+{\ifciteindex
+{\indexnames{labelname}}
+{}%
+\printtext[bibhyperref]{\printnames{labelname}}}
+{\multicitedelim}
+{\usebibmacro{postnote}}
 
 %natbib compatibility
 %\newcommand{\citep}[1]{\cite{#1}}
@@ -528,19 +528,19 @@ inkscape -z -D --file=\getgraphicspath#1.svg %
 \definecolor{black}{rgb}{0,0,0}
 
 \hypersetup{
-    breaklinks=true,
-    bookmarksnumbered=true,
-    bookmarksopen=true,
-    bookmarksopenlevel=1,
-    breaklinks=true,
-    colorlinks=true,
-    pdfstartview=Fit,
-    pdfpagelayout=SinglePage,
-    %
-    filecolor=darkblue,
-    urlcolor=darkblue,
-    linkcolor=black,
-    citecolor=black
+breaklinks=true,
+bookmarksnumbered=true,
+bookmarksopen=true,
+bookmarksopenlevel=1,
+breaklinks=true,
+colorlinks=true,
+pdfstartview=Fit,
+pdfpagelayout=SinglePage,
+%
+filecolor=darkblue,
+urlcolor=darkblue,
+linkcolor=black,
+citecolor=black
 }
 %
 %%%
@@ -584,35 +584,35 @@ inkscape -z -D --file=\getgraphicspath#1.svg %
 % Deckblattstyle
 %
 \ifdeutsch
-	\PassOptionsToPackage{language=german}{uni-stuttgart-cs-cover}
+\PassOptionsToPackage{language=german}{uni-stuttgart-cs-cover}
 \else
-	\PassOptionsToPackage{language=english}{uni-stuttgart-cs-cover}
+\PassOptionsToPackage{language=english}{uni-stuttgart-cs-cover}
 \fi
 
 \usepackage[
-    title={
-Integrating OAuth into Gropius
+title={
+Reimplementation of OAuth 2.1 into Gropius
 },
-    author={Nils Boike, Johannes Zipfel, Cara Heck},
-    type=masterresearchprojectproposal,
+author={Nils Boike, Cara Heck, Johannes Zipfel},
+type=masterresearchprojectproposal,
 %    type=masterproposal,
 %    type=phdproposal,
-    institute=isterss,
-    number=12345,
-    course=se,
+institute=isterss,
+number=12345,
+course=se,
 %    course=seOld,
 %    course=cs,
 %    course=drrernat,
-	examiner={Prof. Dr.-Ing.\ Steffen Becker},
-	supervisor={Sandro Speth,\ M.Sc.}, % uncomment and comment the relevant primary supervisor and add additional supervisors in behind.
- 	% supervisor={Niklas Mei{\ss}ner,\ M.Sc.},
-   	% supervisor={Patrick Spaney,\ M.Sc.},
-     	% supervisor={Sarah Stie{\ss},\ M.Sc.},
-       	% supervisor={Miles St{\"o}tzner,\ M.Sc.},
- 	% supervisor={Marcel Weller,\ M.Sc.},
-   	% supervisor={Nadine Koch,\ M.Sc.},
-     	% supervisor={Floriment Klinaku,\ M.Sc.},
-    ]{uni-stuttgart-cs-cover}
+examiner={Prof. Dr.-Ing.\ Steffen Becker},
+supervisor={Sandro Speth,\ M.Sc.}, % uncomment and comment the relevant primary supervisor and add additional supervisors in behind.
+% supervisor={Niklas Mei{\ss}ner,\ M.Sc.},
+% supervisor={Patrick Spaney,\ M.Sc.},
+% supervisor={Sarah Stie{\ss},\ M.Sc.},
+% supervisor={Miles St{\"o}tzner,\ M.Sc.},
+% supervisor={Marcel Weller,\ M.Sc.},
+% supervisor={Nadine Koch,\ M.Sc.},
+% supervisor={Floriment Klinaku,\ M.Sc.},
+]{uni-stuttgart-cs-cover}
 %
 %%%
 
@@ -637,11 +637,11 @@ Integrating OAuth into Gropius
 % Optionen
 %
 \captionsetup{
-  format=hang,
-  labelfont=bf,
-  justification=justified,
-  %single line captions should be centered, multiline captions justified
-  singlelinecheck=true
+format=hang,
+labelfont=bf,
+justification=justified,
+%single line captions should be centered, multiline captions justified
+singlelinecheck=true
 }
 %
 %neue float Umgebung fuer Listings, die mittels fancyvrb gesetzt werden sollen
@@ -694,17 +694,17 @@ Integrating OAuth into Gropius
 %%%
 % Fuer listings.sty
 \lstset{language=XML,
-        showstringspaces=false,
-        extendedchars=true,
-        basicstyle=\footnotesize\ttfamily,
-        commentstyle=\slshape,
-        stringstyle=\ttfamily, %Original: \rmfamily, damit werden die Strings im Quellcode hervorgehoben. Zusaetzlich evtl.: \scshape oder \rmfamily durch \ttfamily ersetzen. Dann sieht's aus, wie bei fancyvrb
-        breaklines=true,
-        breakatwhitespace=true,
-        columns=flexible,
-        aboveskip=0mm, %deaktivieren, falls man lstlistings direkt als floating object benutzt (\begin{lstlisting}[float,...])
-        belowskip=0mm, %deaktivieren, falls man lstlistings direkt als floating object benutzt (\begin{lstlisting}[float,...])
-        captionpos=b
+showstringspaces=false,
+extendedchars=true,
+basicstyle=\footnotesize\ttfamily,
+commentstyle=\slshape,
+stringstyle=\ttfamily, %Original: \rmfamily, damit werden die Strings im Quellcode hervorgehoben. Zusaetzlich evtl.: \scshape oder \rmfamily durch \ttfamily ersetzen. Dann sieht's aus, wie bei fancyvrb
+breaklines=true,
+breakatwhitespace=true,
+columns=flexible,
+aboveskip=0mm, %deaktivieren, falls man lstlistings direkt als floating object benutzt (\begin{lstlisting}[float,...])
+belowskip=0mm, %deaktivieren, falls man lstlistings direkt als floating object benutzt (\begin{lstlisting}[float,...])
+captionpos=b
 }
 \ifdeutsch
 \renewcommand{\lstlistlistingname}{Verzeichnis der Listings}
@@ -777,7 +777,7 @@ Integrating OAuth into Gropius
 %
 %Normally, this should not be used as the typearea package calculates the margins perfectly
 \usepackage[
-  pass %just load the package and do not destory the work of typearea
+pass %just load the package and do not destory the work of typearea
 ]{geometry}
 %%%
 

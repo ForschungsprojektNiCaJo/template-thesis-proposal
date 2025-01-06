@@ -11,71 +11,58 @@ The primary objective of this project is to integrate an OAuth-based authenticat
 	\item Maintain session persistence across multiple sessions.
 	\item Synchronize issue data from platforms like GitHub and Jira to Gropius using tokens with appropriate permissions.
 \end{itemize}
-
-\section{Work Packages}
-\label{sec-workpackages}
-
-
-\package{Analysis of Requirements and Current Architecture}
-
-\subsubsection{Goals}
-
 \subsubsection{Main Research Questions}
-
 
 How can OAuth be effectively integrated into Gropius to provide session-based authentication and enable seamless synchronization
 with external platforms like GitHub and Jira?
 
+\section{Work Packages}
+\label{sec-workpackages}
 
+\package{Analysis of Requirements and Current Architecture}
+
+\subsubsection{Goals}
+Analyze the current login architecure and define the requirements for integrating OAuth.
 \subsubsection{Research Questions}
 \begin{itemize}
 	\item[RQ1.1]
-What are the limitations of the current stateless login service in Gropius, and how can they be addressed with OAuth-based session management?
-	\item[RQ1.2]
-	\item[RQ1.3]
+	What are the limitations of the current stateless login service in Gropius, and how can they be addressed with OAuth-based session management?
 \end{itemize}
 
 \subsubsection{Tasks}
 This work package is split into the following tasks:
 \begin{itemize}
 	\item[T1.1] Analyze Gropius's current stateless login setup and its limitations.
-	\item[T1.2] Identify requirements for OAuth integration, including user needs for external authentication and issue synchronization, as well as a Interface to the OAuth service.
-	\item % TODO: Do we need to do this?
-	\item[T1.3] Review OAuth flows (e.g., Authorization Code Flow, Device Flow) and their applicability to Gropius.
+	\item[T1.2] Identify requirements for OAuth integration, including user needs for external authentication and issue synchronization, as well as an interface to the OAuth service.
 \end{itemize}
 
 \package{Design of OAuth Consumer and Provider for Gropius}
 
-
 \subsubsection{Goals}
-
-
+Design the functionalities to enable user login and session management
 \subsubsection{Research Questions}
 \begin{itemize}
-	\item[RQ2.1] Does evaery needed OAuth service work with the current Infrastructure of Gropius?
-	\item[RQ2.2] ...
+	\item[RQ2.1] Does every needed OAuth service work with the current Infrastructure of Gropius?
 \end{itemize}
 
 \subsubsection{Tasks}
 This work package is split into the following tasks:
 \begin{itemize}
-	\item[T2.1] Design the OAuth consumer functionality to allow users to log in using GitHub, Google, and other OAuth-compliant providers.
+	\item[T2.1] Design the OAuth consumer functionality to allow users to log in using GitHub, Jira, and possibly other OAuth-compliant providers.
 	\item[T2.2] Define the session management architecture, focusing on token storage, refresh capabilities, and multi-device access.
 	\item[T2.3] Plan the OAuth provider implementation for Gropius to act as an authentication provider for external applications.
 \end{itemize}
 
 \package{Implementation of OAuth Consumer and Provider Services}
 
-
 \subsubsection{Goals}
-
+Implementing the previously designed methods
 
 \subsubsection{Research Questions}
 \begin{itemize}
 	\item[RQ3.1]
-How can token storage and session management be securely and efficiently implemented, and
-what role does the choice of database (e.g., PostgreSQL or MongoDB) play in this?
-	\item[RQ3.2] ...
+	How can token storage and session management be securely and efficiently implemented, and
+	what role does the choice of database (e.g., PostgreSQL or MongoDB) play in this?
 \end{itemize}
 
 \subsubsection{Tasks}
@@ -84,46 +71,31 @@ This work package is split into the following tasks:
 	\item[T3.1] Implement the OAuth consumer service using NestJS and PassportJS, enabling login via third-party providers and session-based access.
 	\item[T3.2] Develop the synchronization API to handle token-based issue management, supporting GitHub and, potentially, Jira synchronization.
 	\item[T3.3] Ensure compatibility with PostgreSQL for efficient token and session management, and optionally evaluate MongoDB for scalability.
-	\item[T3.4] (Optional) Integrate Device Flow to facilitate authentication on various devices (e.g., VSCode).
+	%\item[T3.4] (Optional) Integrate Device Flow to facilitate authentication on various devices (e.g., VSCode).
 \end{itemize}
 
 \package{Testing, Optimization, and Documentation}
-
-Task 4.1: Conduct thorough testing of all implemented OAuth flows and synchronization mechanisms, addressing potential security vulnerabilities.
-Task 4.2: Optimize the architecture based on feedback from real-world testing scenarios.
-Task 4.3: Document the code, providing comprehensive internal and external documentation for maintainability and future development.
-
 \subsubsection{Goals}
-
-
+Include comprehensive tests, performance optimizations, and thorough documentation of all functions to ensure robustness, efficiency, and ease of maintenance.
 \subsubsection{Research Questions}
 \begin{itemize}
 	\item[RQ4.1] What are the best practices for documenting and maintaining OAuth-based authentication systems in the context of an open-source project like Gropius?
-	\item[RQ4.2] ...
 \end{itemize}
-
-\subsubsection{Tasks}
-This work package is split into the following tasks:
 \begin{itemize}
 	\item[T4.1] Conduct thorough testing of all implemented OAuth flows and synchronization mechanisms, addressing potential security vulnerabilities.
 	\item[T4.2] Optimize the architecture based on feedback from real-world testing scenarios.
 	\item[T4.3] Document the code, providing comprehensive internal and external documentation for maintainability and future development.
 \end{itemize}
 
-\package{Final Evaluation and Integration}
+\package{Final Evaluation and Presentation}
 
 \subsubsection{Goals}
+Evaluate the functionality and performance of the OAuth-based authentication system, ensuring it meets project objectives. The package will conclude with a presentation showcasing the implementation and its impact on Gropius.
 
-
-\subsubsection{Research Questions}
 \begin{itemize}
-	\item[RQ4.1] ...
-	\item[RQ4.2] ...
-\end{itemize}
-\begin{itemize}
-	\item[T4.1] Evaluate the OAuth integration’s performance and user experience within Gropius.
-	\item[T4.2] Gather feedback from stakeholders and perform final adjustments.
-	\item[T4.3] Integrate the OAuth-based service fully into Gropius and provide a summary report detailing implementation insights, challenges, and achievements.
+	\item[T5.1] Evaluate the OAuth integration’s performance and user experience within Gropius.
+	\item[T5.2] Gather feedback.
+	\item[T5.3] Prepare a presentation.
 \end{itemize}
 
 
@@ -133,14 +105,15 @@ This work package is split into the following tasks:
 			x unit=0.6cm,
 			y unit title=1cm,
 			vgrid,hgrid]
-			{1}{24}
-			\gantttitle{2024}{24} \\
-			\gantttitle{December}{4}
+		{1}{24}
+			\gantttitle{2025}{24} \\
 			\gantttitle{January}{4}
 			\gantttitle{February}{4}
 			\gantttitle{March}{4}
 			\gantttitle{April}{4}
-			\gantttitle{May}{4} \\
+			\gantttitle{May}{4}
+			\gantttitle{June}{2}
+			\gantttitle{Dec.}{2}\\
 
 			% WP1: Analysis of Requirements and Current Architecture
 			\ganttgroup{WP1}{1}{5} \\
@@ -162,11 +135,13 @@ This work package is split into the following tasks:
 			\ganttgroup{WP4}{16}{24} \\
 			\ganttbar{T4.1}{16}{22} \\
 			\ganttbar{T4.2}{22}{24} \\
+			\ganttbar{T4.3}{16}{24} \\
 
 			% WP5: Final Evaluation and Integration
 			\ganttgroup{WP5}{20}{24} \\
 			\ganttbar{T5.1}{20}{22} \\
 			\ganttbar{T5.2}{22}{24}
+			\ganttbar{T5.3}{22}{24}
 		\end{ganttchart}
 	\end{center}
 	\caption{Gantt Chart for Integrating OAuth into Gropius}\label{fig:gantt_chart}
